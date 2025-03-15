@@ -1,0 +1,80 @@
+const mongoose = require("mongoose");
+
+const memberShipSchema =  new mongoose.Schema({
+    membershipid:{
+        type:String,
+        require:true
+    },
+    fullname:{
+        type:String,
+        require:true
+    },
+    email:{
+        type:String,
+        require:true,
+        unique:[true,'Email AllReady Exist']
+    },
+    phonenumber:{
+        type:String,
+        require:true
+    },
+    address:{
+        type:String,
+        require:true
+    },
+    gender:{
+        type:String,
+        require:true
+    },
+    date:{
+        type:String,
+        require:true
+    },
+    duedate:{
+        type:String,
+        default:'0000-00-00'
+    },
+    dateofbirth:{
+        type:String,
+        require:true
+    },
+    membershiptype:{
+        type:String,
+        require:true
+    },
+    status:{
+        type:String,
+        default:'pending'
+    },
+    place:{
+        type:String,
+        require:true
+    },
+    file:{
+        type:String,
+        require:true
+    },
+    imageproof:{
+        type:String,
+        require:true
+    },
+    role:{
+        type:String,
+        default:'user'
+    },
+    registrationnumber:{
+        type:String,
+        default:'0'
+    },
+    expiredstatus:{
+        type:String,
+        default:'nothing'
+    },
+    messagestatus:{
+        type:String,
+        default:'nothing'
+    }
+});
+
+const memberShip = mongoose.model("membership",memberShipSchema);
+module.exports = memberShip;
